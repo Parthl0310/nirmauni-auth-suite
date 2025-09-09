@@ -111,14 +111,14 @@ const Signup = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-background">
+    <div className="h-screen bg-gradient-background flex flex-col">
       <Navbar />
       
-      <div className="flex items-center justify-center px-6 py-12">
-        <div className="w-full max-w-6xl bg-card rounded-2xl shadow-card overflow-hidden">
-          <div className="grid lg:grid-cols-2 gap-0">
+      <div className="flex-1 flex items-center justify-center px-6 py-8 overflow-hidden">
+        <div className="w-full max-w-6xl bg-card rounded-2xl shadow-card overflow-hidden h-full max-h-[calc(100vh-8rem)]">
+          <div className="grid lg:grid-cols-2 gap-0 h-full">
             {/* Form Section */}
-            <div className="p-8 lg:p-12 max-h-[80vh] overflow-y-auto">
+            <div className="p-8 lg:p-12 overflow-y-auto">
               <div className="max-w-md mx-auto">
                 <h1 className="text-3xl font-bold text-foreground mb-8">Sign up</h1>
                 

@@ -48,10 +48,10 @@ const Login = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-background">
+    <div className="h-screen bg-gradient-background flex flex-col">
       <Navbar />
       
-      <div className="flex items-center justify-center px-6 py-12">
+      <div className="flex-1 flex items-center justify-center px-6 py-8">
         <div className="w-full max-w-6xl bg-card rounded-2xl shadow-card overflow-hidden">
           <div className="grid lg:grid-cols-2 gap-0">
             {/* Form Section */}

@@ -16,18 +16,18 @@ import signupIllustration from "@/assets/signup-illustration.jpg";
 const Signup = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
-  const [profilePicture, setProfilePicture] = useState<File | null>(null);
-  const [profilePreview, setProfilePreview] = useState<string | null>(null);
+  const [profilePicture, setProfilePicture] = useState(null);
+  const [profilePreview, setProfilePreview] = useState(null);
   const [formData, setFormData] = useState({
     fullName: "",
     rollNumber: "",
     email: "",
     department: "",
-    dateOfBirth: undefined as Date | undefined,
+    dateOfBirth: undefined,
     password: "",
     confirmPassword: "",
   });
-  const [errors, setErrors] = useState<{ [key: string]: string }>({});
+  const [errors, setErrors] = useState({});
 
   const departments = [
     { value: "CSE", label: "Computer Science Engineering" },
@@ -37,13 +37,13 @@ const Signup = () => {
     { value: "CE", label: "Civil Engineering" },
   ];
 
-  const validateEmail = (email: string) => {
+  const validateEmail = (email) => {
     const emailRegex = /^[a-zA-Z0-9._%+-]+@nirmauni\.ac\.in$/;
     return emailRegex.test(email);
   };
 
   const validateForm = () => {
-    const newErrors: { [key: string]: string } = {};
+    const newErrors = {};
     
     if (!formData.fullName.trim()) {
       newErrors.fullName = "Full name is required";
@@ -83,7 +83,7 @@ const Signup = () => {
     return Object.keys(newErrors).length === 0;
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     if (validateForm()) {
       console.log("Signup form submitted:", formData);
@@ -91,20 +91,20 @@ const Signup = () => {
     }
   };
 
-  const handleInputChange = (field: string, value: string | Date | undefined) => {
+  const handleInputChange = (field, value) => {
     setFormData(prev => ({ ...prev, [field]: value }));
     if (errors[field]) {
       setErrors(prev => ({ ...prev, [field]: "" }));
     }
   };
 
-  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleFileChange = (e) => {
     const file = e.target.files?.[0];
     if (file) {
       setProfilePicture(file);
       const reader = new FileReader();
       reader.onload = (e) => {
-        setProfilePreview(e.target?.result as string);
+        setProfilePreview(e.target?.result);
       };
       reader.readAsDataURL(file);
     }

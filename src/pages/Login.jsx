@@ -15,10 +15,10 @@ const Login = () => {
     password: "",
     rememberMe: false,
   });
-  const [errors, setErrors] = useState<{ [key: string]: string }>({});
+  const [errors, setErrors] = useState({});
 
   const validateForm = () => {
-    const newErrors: { [key: string]: string } = {};
+    const newErrors = {};
     
     if (!formData.username.trim()) {
       newErrors.username = "Username is required";
@@ -32,7 +32,7 @@ const Login = () => {
     return Object.keys(newErrors).length === 0;
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     if (validateForm()) {
       console.log("Login form submitted:", formData);
@@ -40,7 +40,7 @@ const Login = () => {
     }
   };
 
-  const handleInputChange = (field: string, value: string | boolean) => {
+  const handleInputChange = (field, value) => {
     setFormData(prev => ({ ...prev, [field]: value }));
     if (errors[field]) {
       setErrors(prev => ({ ...prev, [field]: "" }));
@@ -112,7 +112,7 @@ const Login = () => {
                       <Checkbox
                         id="remember"
                         checked={formData.rememberMe}
-                        onCheckedChange={(checked) => handleInputChange("rememberMe", checked as boolean)}
+                        onCheckedChange={(checked) => handleInputChange("rememberMe", checked)}
                       />
                       <Label htmlFor="remember" className="text-sm text-muted-foreground">
                         Remember Me

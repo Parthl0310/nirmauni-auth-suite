@@ -50,7 +50,7 @@ const ProfilePanel = ({ isLoading = false, className }) => {
         <button
           key={day}
           className={cn(
-            "w-8 h-8 flex items-center justify-center text-xs rounded-full transition-all duration-200",
+            "w-6 h-6 flex items-center justify-center text-xs rounded-full transition-all duration-200",
             "hover:bg-primary hover:text-primary-foreground",
             isToday 
               ? "bg-primary text-primary-foreground font-semibold" 
@@ -139,28 +139,28 @@ const ProfilePanel = ({ isLoading = false, className }) => {
 
       {/* Calendar Widget */}
       <Card>
-        <CardHeader className="pb-3">
+        <CardHeader className="pb-2">
           <div className="flex items-center justify-between">
-            <CardTitle className="text-lg">
+            <CardTitle className="text-base">
               {new Date(currentYear, currentMonth).toLocaleDateString('en-US', { 
-                month: 'long', 
+                month: 'short', 
                 year: 'numeric' 
               })}
             </CardTitle>
             <div className="flex space-x-1">
-              <Button variant="ghost" size="icon" className="h-8 w-8">
-                <ChevronLeft className="h-4 w-4" />
+              <Button variant="ghost" size="icon" className="h-6 w-6">
+                <ChevronLeft className="h-3 w-3" />
               </Button>
-              <Button variant="ghost" size="icon" className="h-8 w-8">
-                <ChevronRight className="h-4 w-4" />
+              <Button variant="ghost" size="icon" className="h-6 w-6">
+                <ChevronRight className="h-3 w-3" />
               </Button>
             </div>
           </div>
         </CardHeader>
-        <CardContent>
-          <div className="grid grid-cols-7 gap-1 mb-2">
-            {['Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa', 'Su'].map(day => (
-              <div key={day} className="text-center text-xs font-medium text-muted-foreground p-2">
+        <CardContent className="p-3">
+          <div className="grid grid-cols-7 gap-1 mb-1">
+            {['M', 'T', 'W', 'T', 'F', 'S', 'S'].map(day => (
+              <div key={day} className="text-center text-xs font-medium text-muted-foreground p-1">
                 {day}
               </div>
             ))}

@@ -14,7 +14,7 @@ const Skeleton = ({
   return (
     <div
       className={cn(
-        "animate-shimmer bg-gradient-to-r from-muted via-muted-foreground/20 to-muted bg-[length:200%_100%] animate-pulse",
+        "animate-shimmer bg-gradient-to-r from-muted via-muted-foreground/30 to-muted bg-[length:200%_100%]",
         shapeClasses,
         className
       )}

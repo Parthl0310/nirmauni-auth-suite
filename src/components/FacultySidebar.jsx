@@ -71,7 +71,7 @@ const FacultySidebar = ({ isOpen, onToggle, activeItem, onItemClick, isMobile = 
         
         {/* Mobile Sidebar */}
         <div className={cn(
-          "fixed left-0 top-0 h-full w-80 bg-card border-r border-border z-50 transform transition-transform duration-300 lg:hidden",
+          "fixed left-0 top-0 h-full w-80 bg-card border-r border-border z-50 transform transition-transform duration-300 ease-in-out lg:hidden select-none",
           isOpen ? "translate-x-0" : "-translate-x-full"
         )}>
           <div className="flex items-center justify-between p-4 border-b border-border">
@@ -104,7 +104,7 @@ const FacultySidebar = ({ isOpen, onToggle, activeItem, onItemClick, isMobile = 
   }
 
   return (
-    <aside className="hidden lg:flex lg:w-64 lg:flex-col lg:fixed lg:inset-y-0 bg-card border-r border-border">
+    <aside className="hidden lg:flex lg:w-64 lg:flex-col lg:fixed lg:inset-y-0 bg-card border-r border-border select-none">
       <div className="flex items-center px-6 py-4 border-b border-border">
         <BarChart3 className="h-8 w-8 text-primary mr-3" />
         <h2 className="text-xl font-bold text-primary">Talentition</h2>

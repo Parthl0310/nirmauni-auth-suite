@@ -4,7 +4,10 @@ import DashboardHeader from '@/components/DashboardHeader';
 import DashboardHome from '@/components/DashboardHome';
 import { cn } from '@/lib/utils';
 
+console.log('Dashboard component loading...');
+
 const Dashboard = () => {
+  console.log('Dashboard component rendering...');
   const [activeItem, setActiveItem] = useState('dashboard');
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(window.innerWidth < 1024);

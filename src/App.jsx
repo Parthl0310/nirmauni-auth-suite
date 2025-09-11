@@ -9,7 +9,11 @@ import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
 
-const App = () => (
+console.log('App component loading...');
+
+const App = () => {
+  console.log('App component rendering...');
+  return (
   <QueryClientProvider client={queryClient}>
     <BrowserRouter>
       <Routes>
@@ -23,5 +27,6 @@ const App = () => (
     </BrowserRouter>
   </QueryClientProvider>
 );
+};
 
 export default App;

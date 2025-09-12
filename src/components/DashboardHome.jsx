@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { ChevronLeft, ChevronRight, Calendar } from 'lucide-react';
-import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import LectureCard from './LectureCard';
 import ProfilePanel from './ProfilePanel';
+import StatsCards from './StatsCards';
 import { SkeletonCard } from './Skeleton';
 
 const DashboardHome = () => {
@@ -55,61 +54,6 @@ const DashboardHome = () => {
     }
   ];
 
-  const weekDays = ['Sun', 'Mon', 'Tues', 'Wed', 'Thu', 'Fri', 'Sat'];
-  const dates = ['02', '03', '04', '05', '06', '07', '08'];
-
-  const WeekNavigation = () => (
-    <Card className="mb-6">
-      <CardHeader className="pb-3">
-        <div className="flex items-center justify-between">
-          <CardTitle className="flex items-center text-xl">
-            <Calendar className="h-6 w-6 mr-2 text-primary" />
-            Today's Lectures
-          </CardTitle>
-          <div className="flex items-center space-x-2">
-            <span className="text-sm text-muted-foreground">
-              03 March
-            </span>
-            <div className="flex space-x-1">
-              <Button 
-                variant="ghost" 
-                size="icon" 
-                className="h-8 w-8 hover:bg-primary/10"
-                onClick={() => setCurrentWeek(prev => prev - 1)}
-              >
-                <ChevronLeft className="h-4 w-4" />
-              </Button>
-              <Button 
-                variant="ghost" 
-                size="icon" 
-                className="h-8 w-8 hover:bg-primary/10"
-                onClick={() => setCurrentWeek(prev => prev + 1)}
-              >
-                <ChevronRight className="h-4 w-4" />
-              </Button>
-            </div>
-          </div>
-        </div>
-      </CardHeader>
-      <CardContent>
-        <div className="grid grid-cols-7 gap-2">
-          {weekDays.map((day, index) => (
-            <div
-              key={day}
-              className={`text-center p-3 rounded-lg transition-all duration-200 cursor-pointer hover:bg-primary/10 ${
-                index === 2 // Wednesday is active
-                  ? 'bg-primary text-primary-foreground'
-                  : 'hover:bg-muted'
-              }`}
-            >
-              <div className="text-xs font-medium mb-1">{day}</div>
-              <div className="text-lg font-bold">{dates[index]}</div>
-            </div>
-          ))}
-        </div>
-      </CardContent>
-    </Card>
-  );
 
   const YourLecturesSection = () => (
     <Card className="mb-6">
@@ -201,7 +145,7 @@ const DashboardHome = () => {
       <div className="grid grid-cols-1 xl:grid-cols-3 gap-6">
         {/* Main Content */}
         <div className="xl:col-span-2 space-y-6">
-          <WeekNavigation />
+          <StatsCards />
           <YourLecturesSection />
           <SummitedSection />
         </div>

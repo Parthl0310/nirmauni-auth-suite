@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import FacultySidebar from '@/components/FacultySidebar';
 import DashboardHeader from '@/components/DashboardHeader';
 import DashboardHome from '@/components/DashboardHome';
+import FacultyProfile from '@/components/FacultyProfile';
 import { cn } from '@/lib/utils';
 
 console.log('Dashboard component loading...');
@@ -38,12 +39,7 @@ const Dashboard = () => {
       case 'dashboard':
         return <DashboardHome />;
       case 'profile':
-        return (
-          <div className="p-6">
-            <h2 className="text-2xl font-bold mb-4">Profile</h2>
-            <p className="text-muted-foreground">Profile content coming soon...</p>
-          </div>
-        );
+        return <FacultyProfile />;
       case 'courses':
         return (
           <div className="p-6">

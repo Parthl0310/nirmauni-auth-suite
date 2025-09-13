@@ -3,6 +3,7 @@ import FacultySidebar from '@/components/FacultySidebar';
 import DashboardHeader from '@/components/DashboardHeader';
 import DashboardHome from '@/components/DashboardHome';
 import FacultyProfile from '@/components/FacultyProfile';
+import CoursesPage from './CoursesPage';
 import { cn } from '@/lib/utils';
 
 console.log('Dashboard component loading...');
@@ -41,12 +42,7 @@ const Dashboard = () => {
       case 'profile':
         return <FacultyProfile />;
       case 'courses':
-        return (
-          <div className="p-6">
-            <h2 className="text-2xl font-bold mb-4">Courses</h2>
-            <p className="text-muted-foreground">Courses content coming soon...</p>
-          </div>
-        );
+        return <CoursesPage />;
       case 'performance':
         return (
           <div className="p-6">

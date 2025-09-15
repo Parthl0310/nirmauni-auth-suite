@@ -1,17 +1,30 @@
 import React from 'react';
-import { Bell } from 'lucide-react';
+import { Bell, Menu } from 'lucide-react';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Badge } from '@/components/ui/badge';
+import { Button } from '@/components/ui/button';
 
-export const StudentHeader = () => {
+export const StudentHeader = ({ onToggleSidebar }) => {
   return (
-    <header className="bg-background border-b border-border px-6 py-4 shadow-sm">
+    <header className="fixed top-0 left-0 right-0 lg:left-64 bg-background border-b border-border px-4 lg:px-6 py-4 shadow-sm z-30">
       <div className="flex items-center justify-between">
-        {/* Left - Welcome Message */}
-        <div>
-          <h1 className="text-2xl font-semibold text-foreground">
-            👋 Hii Alex Johnson, Welcome Back!
-          </h1>
+        {/* Left - Hamburger + Welcome Message */}
+        <div className="flex items-center gap-4">
+          {/* Mobile Hamburger Menu */}
+          <Button
+            variant="ghost"
+            size="icon"
+            onClick={onToggleSidebar}
+            className="lg:hidden hover:bg-muted"
+          >
+            <Menu className="h-5 w-5" />
+          </Button>
+          
+          <div>
+            <h1 className="text-lg lg:text-2xl font-semibold text-foreground">
+              👋 Hii Alex Johnson, Welcome Back!
+            </h1>
+          </div>
         </div>
         
         {/* Right - Notifications & Profile */}
